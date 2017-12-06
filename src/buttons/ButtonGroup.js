@@ -87,19 +87,30 @@ const ButtonGroup = props => {
               },
             ]}
           >
-            <View style={[styles.textContainer, buttonStyle && buttonStyle]}>
-              {button.element
-                ? <button.element />
-                : <Text
-                    style={[
-                      styles.buttonText,
-                      textStyle && textStyle,
-                      selectedIndex === i && { color: colors.grey1 },
-                      selectedIndex === i && selectedTextStyle,
-                    ]}
-                  >
-                    {button}
-                  </Text>}
+            <View
+              style={[
+                styles.textContainer,
+                buttonStyle && buttonStyle,
+                selectedIndex === i &&
+                  selectedBackgroundColor && {
+                    backgroundColor: selectedBackgroundColor,
+                  },
+              ]}
+            >
+              {button.element ? (
+                <button.element />
+              ) : (
+                <Text
+                  style={[
+                    styles.buttonText,
+                    textStyle && textStyle,
+                    selectedIndex === i && { color: colors.grey1 },
+                    selectedIndex === i && selectedTextStyle,
+                  ]}
+                >
+                  {button}
+                </Text>
+              )}
             </View>
           </Component>
         );
